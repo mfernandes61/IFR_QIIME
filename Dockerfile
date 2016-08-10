@@ -16,6 +16,7 @@ RUN print_qiime_config.py -t
 #
 RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
+RUN cp qiime-deploy-conf/qiime-1.9.1/qiime.conf qiime-deploy/qiime.conf
 # RUN cd qiime-dploy && qiime-deploy.py
 ADD Welcome.txt /etc/motd
 
