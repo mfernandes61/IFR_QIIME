@@ -14,6 +14,9 @@ RUN pip install --upgrade pip  && pip install numpy && pip install qiime
 # test base qiime
 RUN print_qiime_config.py -t
 #
+RUN git clone https://github.com/qiime/qiime-deploy.git
+RUN git clone https://github.com/qiime/qiime-deploy.git
+RUN qiime-dploy/qiime-deploy.py
 ADD Welcome.txt /etc/motd
 
 #RUN $SIAB_COMM
