@@ -12,7 +12,7 @@ RUN python --version
 RUN pip install --upgrade pip  && pip install numpy && pip install qiime
 
 # test base qiime
-RUN print_qqime_config.py -t
+RUN print_qiime_config.py -t
 #
 ADD Welcome.txt /etc/motd
 
