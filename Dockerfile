@@ -1,4 +1,4 @@
-FROM foodresearch/bbpc
+FROM foodresearch/bppc
 MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 
 USER root
