@@ -4,7 +4,6 @@ MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 USER root
 
 # install pre-requisites
-
 RUN  apt-get update && apt-get install -y python-dev python-pip
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
