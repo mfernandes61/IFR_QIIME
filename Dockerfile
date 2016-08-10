@@ -9,7 +9,7 @@ RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN python --version
 # installl base qiime
-RUN pip install --upgrade pip  && pip install numpy freetype && pip install qiime
+RUN pip install --upgrade pip  && pip install numpy && pip install qiime
 
 # test base qiime
 RUN print_qqime_config.py -t
