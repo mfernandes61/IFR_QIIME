@@ -4,7 +4,7 @@ MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 USER root
 
 # install pre-requisites
-RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config
+RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config default-jdk
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN python --version
