@@ -3,7 +3,7 @@ MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 
 USER root
 
-RUN add-apt-repository  "deb http://archive.ubuntu.com/ubuntu precise main universe"
+RUN add-apt-repository  "deb http://archive.ubuntu.com/ubuntu xenial main universe"
 # install pre-requisites
 RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config default-jdk ant r-base  r-base-dev libgsl-dev perl seqprep ampliconnoise gfortran unzip
 RUN apt-get update && apt-get install -y libssl-dev libzmq-dev libxml2 libxslt1.1 libxslt1-dev subversion sqlite3 libsqlite3-dev
