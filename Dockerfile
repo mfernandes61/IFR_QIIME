@@ -4,11 +4,12 @@ MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 USER root
 
 RUN add-apt-repository  "deb http://archive.ubuntu.com/ubuntu xenial main universe"
+RUN add-apt-repository ppa:j-4/vienna-rna
 # install pre-requisites
 RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config default-jdk ant r-base  r-base-dev libgsl-dev perl seqprep ampliconnoise gfortran unzip
 RUN apt-get update && apt-get install -y libssl-dev libzmq-dev libxml2 libxslt1.1 libxslt1-dev subversion sqlite3 libsqlite3-dev
 RUN apt-get update && apt-get install -y mpich2 libreadline-dev libmysqlclient18 libmysqlclient-dev ghc libc6-i386 libbz2-dev tcl-dev tk-dev libatlas-dev libatlas-base-dev liblapack-dev swig libhdf5-serial-dev
-RUN apt-get update && apt-get install -y bwa
+RUN apt-get update && apt-get install -y bwa vienna-rna
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # installl base qiime
