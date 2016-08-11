@@ -4,7 +4,7 @@ MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 USER root
 
 # install pre-requisites
-RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config default-jdk ant r-base libgsl-dev
+RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config default-jdk ant r-base libgsl-dev perl
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN python --version
@@ -13,6 +13,7 @@ RUN pip install --upgrade pip  && pip install numpy && pip install qiime
 
 # test base qiime
 RUN print_qiime_config.py -t
+RUN perl -v
 #
 RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
