@@ -29,6 +29,7 @@ RUN python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf
 ADD Welcome.txt /etc/motd
 
 #Inherited from bppc Volumes /etc/shellinabox,/home, /var/log/supervisor. Ports22, 4200 Need temp writeable dir for qiime tests
+RUN mkdir /usr/tmp
 VOLUME /usr/tmp
 #
 #RUN $SIAB_COMM
