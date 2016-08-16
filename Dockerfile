@@ -14,11 +14,12 @@ RUN apt-get update && apt-get install -y fasttree infernal chimeraslayer rtax mu
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # installl base qiime
-RUN pip install --upgrade pip  && pip install numpy && pip install qiime
+RUN pip install --upgrade pip  && pip install numpy && pip install qiime && pip install h5py
 
 # test base qiime
 RUN print_qiime_config.py -t
 #
+RUN git clone https://github.com/ibest/clearcut.git
 RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
 ADD qiime.conf qiime-deploy/qiime.conf
