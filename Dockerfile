@@ -13,7 +13,7 @@ RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfre
   fasttree infernal chimeraslayer rtax muscle mothur
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-RUN ln -s /usr/lib/ChimeraSlayer.pl /usr/bin/ChimeraSlayer && ln -s /usr/bin/cd-hit /usr/lib/cd-hit/cd-hit
+RUN ln -s  /usr/bin/ChimeraSlayer /usr/lib/ChimeraSlayer.pl && ln -s  /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit
 # installl base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
 
