@@ -13,7 +13,8 @@ RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfre
   fasttree infernal chimeraslayer rtax muscle mothur
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-# installl base qiime
+RUN ln -s /usr/lib/ChimeraSlayer.pl /usr/bin/ChimeraSlayer && ln -s /usr/bin/cd-hit /usr/lib/cd-hit/cd-hit
+# installl base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
 
 # test base qiime
@@ -30,8 +31,8 @@ RUN python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf
 ADD Welcome.txt /etc/motd
 
 #Inherited from bppc Volumes /etc/shellinabox,/home, /var/log/supervisor. Ports22, 4200 Need temp writeable dir for qiime tests
-RUN mkdir /usr/tmp
-VOLUME /usr/tmp
+#RUN mkdir /usr/tmp
+#VOLUME /usr/tmp
 #
 #RUN $SIAB_COMM
 ENTRYPOINT ["/scripts/launchsiab.sh"]
