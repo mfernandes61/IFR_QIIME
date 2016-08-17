@@ -13,10 +13,11 @@ RUN  apt-get update && apt-get install -y python-dev python-pip freetype* libfre
   fasttree infernal chimeraslayer rtax muscle mothur
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-RUN ln -s  /usr/bin/ChimeraSlayer /usr/lib/ChimeraSlayer.pl && ln -s  /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit
+# RUN ln -s  /usr/bin/ChimeraSlayer /usr/lib/ChimeraSlayer.pl && ln -s  /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit
 # installl base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
 
+RUN wget https://github.com/danknights/sourcetracker/archive/v1.0.1.tar.gz
 # test base qiime
 RUN print_qiime_config.py -t
 #
@@ -24,6 +25,7 @@ RUN git clone https://github.com/ibest/clearcut.git
 RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
 ADD qiime.conf qiime-deploy/qiime.conf
+ADD usearch6.1.544_i86linux32 /usr/bin/usearch
 # RUN cp qiime-deploy-conf/qiime-1.9.1/qiime.conf qiime-deploy/qiime.conf
 RUN mkdir /qiime
 RUN python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf
