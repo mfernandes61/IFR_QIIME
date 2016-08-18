@@ -14,29 +14,30 @@ RUN  apt-get update && apt-get install -y wget python-dev python-pip freetype* l
 RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # RUN ln -s  /usr/bin/ChimeraSlayer /usr/lib/ChimeraSlayer.pl && ln -s  /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit
-# installl base qiime & python pre-reqs
+# install base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
 
 ADD sourcetracker-0.9.8.tar.gz /sourcetracker/sourcetracker-0.9.8.tar.gz 
 # RUN cd /sourcetracker && tar xvzf sourcetracker-0.9.8.tar.gz
-RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln-s /usr/lib/ChimeraSlayer/ChimeraSlayer.pl /usr/bin/ChimeraSlayer
+RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln -s /usr/lib/ChimeraSlayer/ChimeraSlayer.pl /usr/bin/ChimeraSlayer
 # test base qiime
 RUN print_qiime_config.py -t
 #
-RUN git clone https://github.com/ibest/clearcut.git
+# RUN git clone https://github.com/ibest/clearcut.git
 RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
 ADD qiime.conf qiime-deploy/qiime.conf
 ADD usearch6.1.544_i86linux32 /usr/bin/usearch
+
 # RUN cp qiime-deploy-conf/qiime-1.9.1/qiime.conf qiime-deploy/qiime.conf
 RUN mkdir /qiime
 RUN python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf
+RUN chmod +x /usr/bin/usearch && chmod +x /qiime/activate.sh
 # RUN cd qiime-dploy && qiime-deploy.py
 ADD Welcome.txt /etc/motd
 
 #Inherited from bppc Volumes /etc/shellinabox,/home, /var/log/supervisor. Ports22, 4200 Need temp writeable dir for qiime tests
-#RUN mkdir /usr/tmp
-#VOLUME /usr/tmp
+# User should activate volumes in Kitematics and creat a guest subdir in home
 #
 #RUN $SIAB_COMM
 ENTRYPOINT ["/scripts/launchsiab.sh"]
