@@ -17,8 +17,9 @@ RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # installl base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
 
-RUN wget https://github.com/danknights/sourcetracker/archive/v1.0.1.tar.gz
-RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit
+ADD sourcetracker-0.9.8.tar.gz /sourcetracker
+RUN cd /sourcetracker && tar xvzf sourcetracker-0.9.8.tar.gz
+RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln-s /usr/lib/ChimeraSlayer/ChimeraSlayer.pl /usr/bin/ChimeraSlayer
 # test base qiime
 RUN print_qiime_config.py -t
 #
