@@ -18,6 +18,7 @@ RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
 
 RUN wget https://github.com/danknights/sourcetracker/archive/v1.0.1.tar.gz
+RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit
 # test base qiime
 RUN print_qiime_config.py -t
 #
