@@ -17,17 +17,18 @@ RUN  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # install base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
 
+RUN mkdir /sourcetracker
 ADD sourcetracker-0.9.8.tar.gz /sourcetracker/sourcetracker-0.9.8.tar.gz 
 # RUN cd /sourcetracker && tar xvzf sourcetracker-0.9.8.tar.gz
-RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln -s /usr/lib/ChimeraSlayer/ChimeraSlayer.pl /usr/bin/ChimeraSlayer
+RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln -s /usr/lib/ChimeraSlayer/ChimeraSlayer.pl /usr/bin/ChimeraSlayer.pl
 # test base qiime
-RUN print_qiime_config.py -t
+# RUN print_qiime_config.py -t
 #
 # RUN git clone https://github.com/ibest/clearcut.git
 RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
 ADD qiime.conf qiime-deploy/qiime.conf
-ADD usearch6.1.544_i86linux32 /usr/bin/usearch
+ADD usearch5.2.236_i86linux32 /usr/bin/usearch
 
 # RUN cp qiime-deploy-conf/qiime-1.9.1/qiime.conf qiime-deploy/qiime.conf
 RUN mkdir /qiime
