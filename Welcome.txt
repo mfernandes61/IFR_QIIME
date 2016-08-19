@@ -1,2 +1,8 @@
 Welcome to a dockerised Qiime for IFR
+=====================================
+To do anything useful you will need to 
+either
+Mount /home in Kitematics enable volumes
+or 
+use -v parameter in Linux Docker run command to mount /home to a local directory
 
