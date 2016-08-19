@@ -17,7 +17,7 @@ RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip i
 # Install sourcetracker
 RUN mkdir /sourcetracker
 ADD sourcetracker-0.9.8.tar.gz /sourcetracker/sourcetracker-0.9.8.tar.gz 
-RUN cd /sourcetracker && tar xzf sourcetracker-0.9.8.tar.gz && cd /
+RUN cd /sourcetracker && tar xzf sourcetracker-0.9.8.tar.gz
 #
 RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln -s /usr/lib/ChimeraSlayer/ChimeraSlayer.pl /usr/bin/ChimeraSlayer.pl
 #
