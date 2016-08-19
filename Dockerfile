@@ -13,11 +13,11 @@ RUN  apt-get update && apt-get install -y wget python-dev python-pip freetype* l
   fasttree infernal chimeraslayer rtax muscle mothur && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 #
 # install base qiime & python pre-reqs
-RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime
+RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime && pip install ipython[all]
 # Install sourcetracker
 RUN mkdir /sourcetracker
 ADD sourcetracker-0.9.8.tar.gz /sourcetracker/sourcetracker-0.9.8.tar.gz 
-RUN cd /sourcetracker && tar xzf sourcetracker-0.9.8.tar.gz && cd $
+RUN cd /sourcetracker && tar xzf sourcetracker-0.9.8.tar.gz && cd /
 #
 RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln -s /usr/lib/ChimeraSlayer/ChimeraSlayer.pl /usr/bin/ChimeraSlayer.pl
 #
