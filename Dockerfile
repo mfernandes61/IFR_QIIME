@@ -25,6 +25,8 @@ RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
 ADD qiime.conf qiime-deploy/qiime.conf
 ADD usearch5.2.236_i86linux32 /usr/bin/usearch
+
+RUN dpkg-reconfigure -phigh -a 
 # qiime-dploy && qiime-deploy.py
 RUN mkdir /qiime && python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf && chmod +x /usr/bin/usearch && chmod +x /qiime/activate.sh
 # 
