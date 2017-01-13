@@ -10,7 +10,7 @@ RUN  apt-get update && apt-get install -y wget python-dev python-pip freetype* l
  ant r-base  r-base-dev libgsl-dev perl seqprep ampliconnoise gfortran unzip libssl-dev libzmq-dev libxml2 libxslt1.1 libxslt1-dev \
  subversion sqlite3 libsqlite3-dev mpich2 libreadline-dev libmysqlclient18 libmysqlclient-dev ghc libc6-i386 libbz2-dev tcl-dev \
  tk-dev libatlas-dev libatlas-base-dev liblapack-dev swig libhdf5-serial-dev ampliconnoise bwa vienna-rna cd-hit clearcut raxml \
-  fasttree infernal chimeraslayer rtax muscle mothur && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+  fasttree infernal chimeraslayer rtax muscle mothur ea-utils && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 #
 # install base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime && pip install ipython[all]
