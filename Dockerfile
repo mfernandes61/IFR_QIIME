@@ -5,7 +5,7 @@ USER root
 # Add required respositories
 RUN add-apt-repository  "deb http://archive.ubuntu.com/ubuntu xenial main universe"
 RUN add-apt-repository -y ppa:j-4/vienna-rna
-RUN dpkg --configure -a med-config
+RUN dpkg --configure -a
 # install pre-requisites (QUIIME has a LOT of these)
 RUN  apt-get update && apt-get install -y wget python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config default-jdk \
  ant r-base  r-base-dev libgsl-dev perl seqprep ampliconnoise gfortran unzip libssl-dev libzmq-dev libxml2 libxslt1.1 libxslt1-dev \
