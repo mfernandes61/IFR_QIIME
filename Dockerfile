@@ -31,13 +31,14 @@ ADD usearch5.2.236_i86linux32 /usr/bin/usearch
 
 #RUN dpkg-reconfigure -phigh -a 
 # qiime-dploy && qiime-deploy.py
-#RUN mkdir /qiime && python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf && chmod +x /usr/bin/usearch && chmod +x /qiime/activate.sh
+RUN mkdir /qiime && python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf && chmod +x /usr/bin/usearch && chmod +x /qiime/activate.sh
 # 
 ADD Welcome.txt /etc/motd
 EXPOSE 8888
 #Inherited from bppc Volumes /etc/shellinabox,/home, /var/log/supervisor. Ports22, 4200 Need temp writeable dir for qiime tests
 # User should activate volumes in Kitematics and creat a guest subdir in home
 #
+USER guest
 # Run shellinabox and keep process (& container) alive
 ENTRYPOINT ["/scripts/launchsiab.sh"]
 CMD ["/bin/bash"]
