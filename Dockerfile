@@ -11,9 +11,11 @@ RUN  apt-get update && apt-get install -y wget python-dev python-pip freetype* l
  subversion sqlite3 libsqlite3-dev mpich2 libreadline-dev libmysqlclient18 libmysqlclient-dev ghc libc6-i386 libbz2-dev tcl-dev \
  tk-dev libatlas-dev libatlas-base-dev liblapack-dev swig libhdf5-serial-dev ampliconnoise bwa vienna-rna cd-hit clearcut raxml \
   fasttree infernal chimeraslayer rtax muscle mothur ea-utils && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+RUN echo ">>>Apt-get done<<<<"
 #
 # install base qiime & python pre-reqs
 RUN pip install --upgrade pip  && pip install numpy && pip install h5py && pip install qiime && pip install ipython[all]
+RUN echo ">>>>pip install done<<<<"
 # Install sourcetracker
 RUN mkdir /sourcetracker
 ADD sourcetracker-0.9.8.tar.gz /sourcetracker/sourcetracker-0.9.8.tar.gz 
@@ -23,10 +25,11 @@ RUN ln -s /usr/lib/cd-hit/cd-hit /usr/bin/cd-hit && ln -s /usr/lib/ChimeraSlayer
 #
 RUN git clone https://github.com/qiime/qiime-deploy.git
 RUN git clone https://github.com/qiime/qiime-deploy-conf.git
+RUN echo ">>>>git cloning done<<<<"
 ADD qiime.conf qiime-deploy/qiime.conf
 ADD usearch5.2.236_i86linux32 /usr/bin/usearch
 
-RUN dpkg-reconfigure -phigh -a 
+#RUN dpkg-reconfigure -phigh -a 
 # qiime-dploy && qiime-deploy.py
 #RUN mkdir /qiime && python qiime-deploy/qiime-deploy.py /qiime -f qiime-deploy/qiime.conf && chmod +x /usr/bin/usearch && chmod +x /qiime/activate.sh
 # 
