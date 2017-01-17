@@ -2,6 +2,7 @@ FROM foodresearch/bppc
 MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 #
 USER root
+RUN groupadd -g 110 med && usermod -a -G med guest
 # Add required respositories
 RUN add-apt-repository  "deb http://archive.ubuntu.com/ubuntu xenial main universe"
 RUN add-apt-repository -y ppa:j-4/vienna-rna
