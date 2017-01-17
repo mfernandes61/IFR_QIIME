@@ -10,8 +10,9 @@ RUN dpkg --configure -a
 RUN  apt-get update && apt-get install -y wget python-dev python-pip freetype* libfreetype6-dev libpng12-dev pkg-config default-jdk \
  ant r-base  r-base-dev libgsl-dev perl seqprep ampliconnoise gfortran unzip libssl-dev libzmq-dev libxml2 libxslt1.1 libxslt1-dev \
  subversion sqlite3 libsqlite3-dev mpich2 libreadline-dev libmysqlclient18 libmysqlclient-dev ghc libc6-i386 libbz2-dev tcl-dev \
- tk-dev libatlas-dev libatlas-base-dev liblapack-dev swig libhdf5-serial-dev ampliconnoise bwa vienna-rna cd-hit clearcut raxml \
+ tk-dev libatlas-dev libatlas-base-dev liblapack-dev swig libhdf5-serial-dev ampliconnoise bwa  cd-hit clearcut raxml \
   fasttree infernal chimeraslayer rtax muscle mothur ea-utils && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+ # vienna-rna
 RUN echo ">>>Apt-get done<<<<"
 #
 # install base qiime & python pre-reqs
